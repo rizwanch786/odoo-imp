@@ -1,0 +1,3 @@
+Expired database in odoo
+login->inspect->console $.unblockUI(); do not refreash
+setting->system parameters->database.expertion_date->change the date
