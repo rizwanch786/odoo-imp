@@ -1,0 +1,50 @@
+Create function for set Many2one fields default value
+@api.model
+    def create(self, vals):
+        res = super(FleetManageField, self).create(vals)
+        print(res)
+        result = self.env['account.analytic.account'].create(
+            {'name': res['license_plate'],
+             'fleet_vehicle_id': res.id,
+             })
+        res.analytical_account_id = result.id
+        return result
+        
+       
+       
+    def action_create_jv(self):
+        lines = []
+        debit_sum = 0.0
+        credit_sum = 0.0
+        for record in self:
+            move_dict = {
+                'ref': record.name,
+                'branch_id': record.branch_id.id,
+                'move_type': 'entry',
+                'journal_id': record.advance_journal.id,
+                'partner_id': record.partner_id.id,
+                'date': record.date,
+
+                'state': 'draft',
+            }
+            debit_line = (0, 0, {
+                'name': 'Advance Payment',
+                'debit': 0.0,
+                'credit': 0.0,
+                'partner_id': record.partner_id.id,
+                'account_id': record.advance_account.id,
+            })
+            lines.append(debit_line)
+            debit_sum += debit_line[2]['debit'] - debit_line[2]['credit']
+            credit_line = (0, 0, {
+                'name': 'Advance Payment',
+                'debit': 0.0,
+                'partner_id': record.partner_id.id,
+                'credit': 0.0,
+                'account_id': record.advance_account.id,
+            })
+            lines.append(credit_line)
+            credit_sum += credit_line[2]['credit'] - credit_line[2]['debit']
+            move_dict['line_ids'] = lines
+            move = self.env['account.move'].create(move_dict)
+            print('JV Created')
