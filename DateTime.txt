@@ -20,3 +20,10 @@ print(d)
 
 
 
+import pandas as pd
+import datetime
+temp = pd.to_datetime(datetime.datetime.now())
+df = temp + pd.DateOffset(weeks=1)
+print(df)
+
+
