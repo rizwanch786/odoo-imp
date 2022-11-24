@@ -1,0 +1,22 @@
+import pandas as pd
+import datetime
+month_start = pd.Period(datetime.datetime.now(), freq='M').start_time.date()
+month_end = pd.Period(datetime.datetime.now(), freq='M').end_time.date()
+print(month_start)
+print(month_end)
+
+
+import datetime
+from dateutil.relativedelta import relativedelta
+d = (datetime.datetime.now() + relativedelta(day=31))
+print(d)
+
+
+import calendar
+import datetime
+date = datetime.date(2021,5,16)
+d = date.replace(day = calendar.monthrange(date.year, date.month)[1])
+print(d)
+
+
+
