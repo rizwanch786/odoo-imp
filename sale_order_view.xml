@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+        <record id="view_order_form_inherited" model="ir.ui.view">
+            <field name="name">sale.order.form.inherited</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button
+                            name="%(action_view_account_voucher_wizard)d"
+                            string="Token Money"
+                            type="action"
+                            attrs="{'invisible': ['|',('state', 'in', ['done','cancel']),('amount_residual', '=', 0)]}"
+                    />
+                </xpath>
+                <field name="tax_totals_json" position="after">
+                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                        <label for="amount_residual"/>
+                    </div>
+                    <field
+                            name="amount_residual"
+                            nolabel="1"
+                            class="oe_subtotal_footer_separator"
+                            widget="monetary"
+                            options="{'currency_field': 'currency_id'}"
+                    />
+                </field>
+                <notebook position="inside">
+                    <page string="Token Money">
+                        <field
+                                name="account_payment_ids"
+                                nolabel="1"
+                                colspan="4"
+                                context="{'form_view_ref': 'account.view_account_payment_form','tree_view_ref': 'account.view_account_payment_tree'}"
+                        />
+                    </page>
+                </notebook>
+                <xpath expr="//page[@name='other_information']" position="after">
+                    <page string="Payment Plan" name="payment_plan">
+                        <field name="plan_ids" attrs="{'readonly':[('state','=','sale')]}">
+                            <tree sample="1" editable="bottom">
+                                <field name="milestone_id"/>
+                                <button string="Add" class="btn btn-primary" name="open_payment_plan_wizard"
+                                        type="object" attrs="{'column_invisible':[('parent.state','=','sale')]}"/>
+                                <field name="percentage" readonly="1"/>
+                                <field name="amount" readonly="1"/>
+                                <field name="start_date" readonly="1"/>
+                                <field name="end_date" readonly="1"/>
+                                <field name="installment_no" readonly="1"/>
+                                <field name="installment_period" readonly="1"/>
+                            </tree>
+                        </field>
+                        <notebook name="installment">
+                            <page string="Installments">
+                                <field name="installment_ids">
+                                    <tree sample="1" editable="bottom" edit="0" create="0" delete="0">
+                                        <field name="milestone_id" readonly="1"/>
+                                        <field name="amount" readonly="1"/>
+                                        <field name="move_id" readonly="1" attrs="{'column_invisible':[('parent.state','!=','sale')]}"/>
+                                        <field name="invoice_date" readonly="1" attrs="{'column_invisible':[('parent.state','!=','sale')]}"/>
+                                        <field name="invoice_payment_date" readonly="1" attrs="{'column_invisible':[('parent.state','!=','sale')]}"/>
+                                        <field name="invoice_status" readonly="1" attrs="{'column_invisible':[('parent.state','!=','sale')]}"/>
+                                        <field name="payment_status" readonly="1" attrs="{'column_invisible':[('parent.state','!=','sale')]}"/>
+                                        <field name="date" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <group name="ins_amount" col="6" class="mt-2 mt-md-0">
+                            <group colspan="2">
+                                <field name="ins_amount" string="Total"/>
+                                <div class="oe_clear"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
