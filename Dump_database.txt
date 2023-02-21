@@ -1,2 +1,0 @@
-sudo su - postgres
-pg_dump --no-owner --format==custom Database_Name > db_0001.dump
