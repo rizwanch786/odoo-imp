@@ -1,3 +1,7 @@
+
+## Invisible One2many column
+
+```XML
 <odoo>
     <data>
         <record id="view_order_form_inherited" model="ir.ui.view">
@@ -78,3 +82,5 @@
         </record>
     </data>
 </odoo>
+
+```
