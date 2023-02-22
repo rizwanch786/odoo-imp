@@ -257,3 +257,7 @@ QWEB Report Bar Code
 ```XML
 <img t-att-src="'/report/barcode/Code128/'+o.name" style="height:150px; width:150px;" alt="QR Code"/>
 ```
+OR
+```XML
+<span t-field="o.name" t-options="{'widget': 'barcode', 'humanreadable': 1,'width': 600, 'height': 100}">
+```   
