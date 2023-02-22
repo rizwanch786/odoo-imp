@@ -1,6 +1,5 @@
 # Make Odoo Easy
-M. Rizwan
-
+[@rizwanch786](https://www.github.com/rizwanch786)
 
 
 # Domain for Customer/Vendor
