@@ -1,5 +1,5 @@
 
-## QR Code in Form View
+## QR Code on Form View
 
 Python
 ```Python
@@ -40,12 +40,12 @@ XML
         </record>
 ```
 
-QWEB Report
+## QR Code on QWEB Report
 ```XML
 <img t-if="o.qr_code" style="display:block; height:150px; width:150px;" t-att-src="image_data_uri(o.qr_code)" alt="o.name"/>
 ```
 
-### ----------------------------------------------- Shortcut Method ------------------------------------------------
+### ------------------------------------ Shortcut Method ------------------------------------
 
 QWEB Report QR Code
 ```XML
