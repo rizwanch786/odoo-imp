@@ -194,16 +194,22 @@ To create a dump file , run the following command
 
 
 
+
 ## QR Code on Form View
 
-Python
+### Python
+Libraries
 ```Python
 import qrcode
 import base64
 from io import BytesIO
-
+```
+Fields
+```Python
 qr_code = fields.Binary("QR Code", attachment=True, compute='_compute_generate_qr_code')
-
+```
+Function
+```Python
 @api.depends('name')
     def _compute_generate_qr_code(self):
         qr = qrcode.QRCode(
@@ -251,4 +257,3 @@ QWEB Report Bar Code
 ```XML
 <img t-att-src="'/report/barcode/Code128/'+o.name" style="height:150px; width:150px;" alt="QR Code"/>
 ```
-    
