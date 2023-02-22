@@ -1,14 +1,19 @@
 
 ## QR Code on Form View
 
-Python
+### Python
+Libraries
 ```Python
 import qrcode
 import base64
 from io import BytesIO
-
+```
+Fields
+```Python
 qr_code = fields.Binary("QR Code", attachment=True, compute='_compute_generate_qr_code')
-
+```
+Function
+```Python
 @api.depends('name')
     def _compute_generate_qr_code(self):
         qr = qrcode.QRCode(
