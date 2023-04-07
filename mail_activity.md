@@ -1,7 +1,9 @@
-# Mail Activity
+
+
+## Mail Activity
 
 Python
-```
+```Python
 todos = {
             'res_id': res.id,
             'res_model_id': self.env['ir.model'].sudo().search([('model', '=', 'account.payment')]).id,
@@ -16,10 +18,10 @@ else:
     raise ValidationError('This email does not exist (baashar.mohammed@sanadbags.com)')
 ```
 
-# Mail Activity: Mark As Done
+## Mail Activity: Mark As Done
 
 Function
-```
+```Python
 @api.model
     def mark_activity_done(self, user_id):
         activity = self.env['mail.activity'].search(
@@ -27,7 +29,6 @@ Function
         activity.action_done()
 ```
 Driver
-```
+```Python
 self.mark_activity_done(self.env.user.id)
 ```
-
