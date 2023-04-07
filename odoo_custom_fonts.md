@@ -1,5 +1,4 @@
-## Mail Activity
-
+## Odoo Custom Font in Qweb Reports
 To use a custom font file like Times New Roman in an Odoo report, you can follow these steps:
 
 Place the Times New Roman .ttf file in a folder within your Odoo module, for example in the static folder.
@@ -36,5 +35,6 @@ Or you could use a more specific selector to apply the font only to certain part
 Restart the Odoo server and check the report to make sure the font is being used correctly.
 
 Note that you may need to adjust the src URL in the @font-face rule if your font file has a different file extension or if you're using a different folder structure.
+
 
 
