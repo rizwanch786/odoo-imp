@@ -69,7 +69,7 @@ Clone the Odoo 16 source code from GitHub:
 
 Create a new Python virtual environment for Odoo:
 ```bash
-cd /opt/odoo15
+cd /opt/odoo16
 python3 -m venv odoo-venv
 ```
 Activate the virtual environment:
@@ -106,12 +106,16 @@ sudo nano /etc/odoo16.conf
 admin_passwd = my_admin_passwd
 db_host = False
 db_port = False
-db_user = odoo15
+db_user = odoo16
 db_password = False
 addons_path = /opt/odoo16/odoo/addons,/opt/odoo16/odoo-custom-addons
-
+logfile = /var/log/odoo/odoo16.log
 ```
-
+Create Logfile
+```besh
+sudo mkdir /var/log/odoo
+sudo chown odoo16:root /var/log/odoo
+```
 ## Creating Systemd Unit File
 
 A unit file is a configuration ini-style file that holds information about a service.
@@ -294,5 +298,4 @@ sudo systemctl restart odoo16
 ```
 
 At this point, the reverse proxy is configured, and you can access your Odoo instance at https://example.com.
-
 
