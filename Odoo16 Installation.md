@@ -1,5 +1,5 @@
-
 # Odoo 16 Installation Ubuntu 20.*
+Prepaired By: [@rizwanch786](https://www.github.com/rizwanch786)
 
 Odoo is a popular open-source suite of business apps that help companies to manage and run their business. It includes a wide range of applications such as CRM, e-Commerce, website builder, billing, accounting, manufacturing, warehouse, project management, inventory, and much more, all seamlessly integrated.
 
