@@ -362,4 +362,27 @@ Restart the Odoo server and check the report to make sure the font is being used
 Note that you may need to adjust the src URL in the @font-face rule if your font file has a different file extension or if you're using a different folder structure.
 
 
+# Vender or Company complete address on qweb reports
+
+```xml
+<div class="row col-md-12">
+    <div class="col-6">
+        <div name="company_address" class="mb4">
+            <span t-field="docs.partner_id"
+                  t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+        </div>
+        TRN:
+        <span t-field="o.partner_id.vat"/>
+    </div>
+    <div class="col-6">
+        <div name="company_address" class="mb4">
+            <span t-field="docs.company_id.partner_id"
+                  t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+        </div>
+        TRN:
+        <span t-field="o.company_id.vat"/>
+    </div>
+</div>
+```
+
 
