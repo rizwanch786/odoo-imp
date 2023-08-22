@@ -11,10 +11,10 @@ This article goes through installing and deploying Odoo 15 inside a Python virtu
 
 The first step is to install Git , Pip , Node.js , and development [tools required to build]
 ```bash
-  sudo apt update
+sudo apt update
 ```
 ```bash
-  sudo apt install git python3-pip build-essential wget python3-dev python3-venv \
+sudo apt install git python3-pip build-essential wget python3-dev python3-venv \
     python3-wheel libfreetype6-dev libxml2-dev libzip-dev libldap2-dev libsasl2-dev \
     python3-setuptools node-less libjpeg-dev zlib1g-dev libpq-dev \
     libxslt1-dev libldap2-dev libtiff5-dev libjpeg8-dev libopenjp2-7-dev \
@@ -33,11 +33,11 @@ You can name the user anything you want, as long you create a PostgreSQL user wi
 
 Odoo uses PostgreSQL as the database back-end. PostgreSQL is included in the standard Ubuntu repositories. The installation is straightforward:
 ```bash
-  sudo apt install postgresql
+sudo apt install postgresql
 ```
 Once the service is installed, create a PostgreSQL user with the same name as the previously created system user. In this example, that is odoo16:
 ```bash
-  sudo su - postgres -c "createuser -s odoo16"
+sudo su - postgres -c "createuser -s odoo16"
 ```
 
 ## Installing wkhtmltopdf
@@ -46,7 +46,7 @@ wkhtmltopdf is a set of open-source command-line tools for rendering HTML pages 
 
 The version of wkhtmltopdf that is included in Ubuntu repositories does not support headers and footers. The recommended version for Odoo is version 0.12.5. We’ll download and install the package from Github:
 ```bash
-  sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb
+sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb
 ```
 Once the file is downloaded, install it by typing:
 ```bash
@@ -59,12 +59,12 @@ We’ll install Odoo from the source inside an isolated Python virtual environme
 
 First, change to user “odoo16”:
 ```bash
-  sudo su - odoo16
+sudo su - odoo16
 ```
 
 Clone the Odoo 16 source code from GitHub:
 ```bash
-  git clone https://www.github.com/odoo/odoo --depth 1 --branch 16.0 /opt/odoo16/odoo
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 16.0 /opt/odoo16/odoo
 ```
 
 Create a new Python virtual environment for Odoo:
