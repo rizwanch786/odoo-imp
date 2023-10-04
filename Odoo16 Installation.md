@@ -50,7 +50,7 @@ sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wk
 ```
 Once the file is downloaded, install it by typing:
 ```bash
-  sudo apt install ./wkhtmltox_0.12.5-1.bionic_amd64.deb
+sudo apt install ./wkhtmltox_0.12.5-1.bionic_amd64.deb
 ```
 
 ## Installing and Configuring Odoo 16
