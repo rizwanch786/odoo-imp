@@ -25,7 +25,7 @@ sudo apt install git python3-pip build-essential wget python3-dev python3-venv \
 
 Running Odoo under the root user poses a great security risk. We’ll create a new system user and group with home directory /opt/odoo16 that will run the Odoo service. To do so, run the following command:
 ```bash
-  sudo useradd -m -d /opt/odoo16 -U -r -s /bin/bash odoo16
+sudo useradd -m -d /opt/odoo16 -U -r -s /bin/bash odoo16
 ```
 You can name the user anything you want, as long you create a PostgreSQL user with the same name.
 
@@ -124,7 +124,7 @@ Open your text editor and create a file named odoo16.service with the following 
 
 
 ```bash
-  sudo nano /etc/systemd/system/odoo16.service
+sudo nano /etc/systemd/system/odoo16.service
 ```
 ```bash
 [Unit]
