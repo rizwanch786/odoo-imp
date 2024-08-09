@@ -49,7 +49,7 @@ sudo ldconfig
 ```
 Example only:
 ```bash
-sudo ldconfig /opt/Python3.8.16
+sudo ldconfig /opt/Python3.8.10
 ```
 
 ## Verify Python 3.8 Installation
