@@ -15,3 +15,9 @@
             ]
             return request.make_response(pdf, headers=pdfhttpheaders)
 ```
+
+```XML
+<a t-att-href="'/my/salary_slip_print/' + str(payslip.id)">
+                                                <button class="btn btn-primary">Preview</button>
+                                            </a>
+```
