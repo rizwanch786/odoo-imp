@@ -1,6 +1,6 @@
 # Download payslip documant from Portal
 
-
+Python-Controller
 ```Bash
 @http.route('/my/salary_slip_print/<int:pay_id>', type='http', auth="user", website=True)
     def portal_my_salary_slip_print(self, pay_id, **kw):
@@ -16,8 +16,9 @@
             return request.make_response(pdf, headers=pdfhttpheaders)
 ```
 
+XML
 ```XML
 <a t-att-href="'/my/salary_slip_print/' + str(payslip.id)">
-                                                <button class="btn btn-primary">Preview</button>
-                                            </a>
+    <button class="btn btn-primary">Preview</button>
+</a>
 ```
