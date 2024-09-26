@@ -1,5 +1,7 @@
 Create a python file in your Odoo module and name it "setup.py".
+
 Copy below code snippet in the above file.
+
 Register your newly created python file "setup.py" in __init.py__ file.
 
 ```python
